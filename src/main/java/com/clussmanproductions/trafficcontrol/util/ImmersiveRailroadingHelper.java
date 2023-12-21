@@ -7,10 +7,10 @@ import java.util.stream.Collectors;
 
 import com.google.common.collect.ImmutableList;
 
-import cam72cam.immersiverailroading.entity.EntityMoveableRollingStock;
-import cam72cam.immersiverailroading.thirdparty.trackapi.ITrack;
-import cam72cam.mod.entity.ModdedEntity;
-import cam72cam.mod.math.Vec3i;
+//import cam72cam.immersiverailroading.entity.EntityMoveableRollingStock;
+//import cam72cam.immersiverailroading.thirdparty.trackapi.ITrack;
+//import cam72cam.mod.entity.ModdedEntity;
+//import cam72cam.mod.math.Vec3i;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Tuple;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 public class ImmersiveRailroadingHelper {
 	public static Vec3d findOrigin(BlockPos currentPos, EnumFacing signalFacing, World world)
 	{
-		Vec3d retVal = new Vec3d(0, -1, 0);
+		/**Vec3d retVal = new Vec3d(0, -1, 0);
 		cam72cam.mod.world.World camWorld = cam72cam.mod.world.World.get(world);
 		
 		EnumFacing searchDirection = signalFacing.rotateY().rotateY().rotateY();
@@ -53,13 +53,13 @@ public class ImmersiveRailroadingHelper {
 			}
 			workingPos = new BlockPos(currentPos.getX(), currentPos.getY() + 1, currentPos.getZ());
 		}
-		
-		return retVal;
+		**/
+		return new Vec3d(0,0,0);//retVal;
 	}
 	
 	public static Vec3d getNextPosition(Vec3d currentPosition, Vec3d motion, World world)
 	{
-		BlockPos currentBlockPos = new BlockPos(currentPosition.x, currentPosition.y, currentPosition.z);
+		/**BlockPos currentBlockPos = new BlockPos(currentPosition.x, currentPosition.y, currentPosition.z);
 		cam72cam.mod.world.World camWorld = cam72cam.mod.world.World.get(world);
 		ITrack te = ITrack.get(camWorld, new cam72cam.mod.math.Vec3d(currentBlockPos.getX(), currentBlockPos.getY(), currentBlockPos.getZ()), false);
 		
@@ -108,12 +108,12 @@ public class ImmersiveRailroadingHelper {
 		}
 
 		cam72cam.mod.math.Vec3d retVal = te.getNextPosition(new cam72cam.mod.math.Vec3d(currentPosition), new cam72cam.mod.math.Vec3d(motion));
-		return retVal.internal();
+		**/return new Vec3d(0,0,0);//retVal.internal();
 	}
 	
 	public static Tuple<UUID, Vec3d> getStockNearby(Vec3d currentPosition, World world)
 	{
-		BlockPos currentBlockPos = new BlockPos(currentPosition.x, currentPosition.y, currentPosition.z);
+		/**BlockPos currentBlockPos = new BlockPos(currentPosition.x, currentPosition.y, currentPosition.z);
 
 		AxisAlignedBB bb = new AxisAlignedBB(currentBlockPos.down().south(2).west(2), currentBlockPos.up(3).east(2).north(2));
 		
@@ -134,7 +134,8 @@ public class ImmersiveRailroadingHelper {
 		else
 		{
 			return null;
-		}
+		}**/
+		return null;
 	}
 
 	// Methods for finding next position from Track API (to avoid referencing "world")
